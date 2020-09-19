@@ -1,5 +1,6 @@
 # vendor opensource packages
 ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
+ifneq ($(TARGET_HAS_OWN_SOURCE_IN_TREE), tue)
 
 # Activate the following two lines for regression testing
 #GNSS_SANITIZE := address cfi alignment bounds null unreachable integer
@@ -28,7 +29,6 @@ LOC_BOARD_PLATFORM_LIST += lahaina
 LOC_BOARD_PLATFORM_LIST += holi
 
 ifneq (,$(filter $(LOC_BOARD_PLATFORM_LIST),$(TARGET_BOARD_PLATFORM)))
-
 PRODUCT_PACKAGES += libloc_api_v02
 PRODUCT_PACKAGES += libgnsspps
 PRODUCT_PACKAGES += libsynergy_loc_api
@@ -36,5 +36,5 @@ PRODUCT_PACKAGES += izat_remote_api_headers
 PRODUCT_PACKAGES += loc_sll_if_headers
 
 endif #is-board-platform-in-list
-
+endif
 endif#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE
