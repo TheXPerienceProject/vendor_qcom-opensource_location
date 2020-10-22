@@ -1,7 +1,6 @@
 # vendor opensource packages
 ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
-ifneq ($(TARGET_HAS_OWN_SOURCE_IN_TREE), tue)
-ifneq ($(TARGET_DEVICE),lavender)
+ifeq ($(filter platina lavender, $(TARGET_DEVICE)),)
 
 # Activate the following two lines for regression testing
 #GNSS_SANITIZE := address cfi alignment bounds null unreachable integer
@@ -38,5 +37,4 @@ PRODUCT_PACKAGES += loc_sll_if_headers
 
 endif #is-board-platform-in-list
 endif # target_device 
-endif
 endif#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE
